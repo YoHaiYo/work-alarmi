@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>일건강 알림 타이머</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex items-center justify-center h-screen bg-green-50">
+    <!-- 알림 모달 -->
+    <div
+      id="alertModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden"
+    >
+      <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <p class="text-lg font-semibold text-green-700">
+          잠시 자리에서 자세를 고쳐앉고 리프레쉬 해줍시다!
+        </p>
+      </div>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-sm text-center">
+      <h1 class="text-2xl font-bold text-green-700 mb-4">일건강 알림 타이머</h1>
+      <p class="text-md text-gray-600 mb-2 text-green-700">
+        작업하는 일정 시각마다 자세를 고쳐앉을수록 있도록 알림이 오는
+        사이트입니다.
+      </p>
+      <hr class="mb-3" />
+      <p class="text-sm text-gray-600 mb-2">
+        자주 자세를 바로잡고 리프레쉬하며 더 건강하게 일해보세요!
+      </p>
+      <p class="text-sm text-gray-500 mb-3">
+        근무 시작 시간부터 알림이 시작됩니다.
+      </p>
+      <p class="text-sm text-gray-500 mb-3">
+        근무 시간 및 점심시간에는 알림이 오지 않습니다.
+      </p>
+      <hr class="mb-3" />
+
+      <!-- 알림 간격 설정 -->
+      <div class="mb-4">
+        <label
+          for="interval"
+          class="block text-sm font-medium text-gray-700 mb-1"
+          >알림 간격 (분):</label
+        >
+        <input
+          type="number"
+          id="interval"
+          value="60"
+          min="1"
+          class="w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+      </div>
+
+      <!-- 근무 시간 설정 -->
+      <div class="mb-4">
+        <label
+          for="startWork"
+          class="block text-sm font-medium text-gray-700 mb-1"
+          >근무 시작 시간:</label
+        >
+        <input
+          type="time"
+          id="startWork"
+          value="09:00"
+          class="w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          for="endWork"
+          class="block text-sm font-medium text-gray-700 mb-1"
+          >근무 종료 시간:</label
+        >
+        <input
+          type="time"
+          id="endWork"
+          value="18:00"
+          class="w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+      </div>
+
+      <!-- 점심 시간 설정 -->
+      <div class="mb-4">
+        <label
+          for="lunchStart"
+          class="block text-sm font-medium text-gray-700 mb-1"
+          >점심 시작 시간:</label
+        >
+        <input
+          type="time"
+          id="lunchStart"
+          value="12:00"
+          class="w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+      </div>
+
+      <div class="mb-6">
+        <label
+          for="lunchEnd"
+          class="block text-sm font-medium text-gray-700 mb-1"
+          >점심 종료 시간:</label
+        >
+        <input
+          type="time"
+          id="lunchEnd"
+          value="13:00"
+          class="w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+      </div>
+
+      <!-- 다음 알림 시간 및 카운트다운 -->
+      <p id="nextAlert" class="text-sm text-gray-700 mb-2">
+        다음 알림 시각: --:--
+      </p>
+      <p id="countdown" class="text-sm text-gray-700 mb-6">남은 시간: --:--</p>
+
+      <!-- 알림 시작/중지 버튼 -->
+      <div class="flex space-x-2">
+        <button
+          id="startBtn"
+          class="flex-1 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+        >
+          알림 시작
+        </button>
+        <button
+          id="stopBtn"
+          class="flex-1 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300"
+          disabled
+        >
+          알림 중지
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
