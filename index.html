@@ -13,29 +13,40 @@
       class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden"
     >
       <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-        <p class="text-lg font-semibold text-green-700">
+        <p class="text-lg font-semibold text-green-700" id="alertText">
           Let's sit down and refresh for a while!
         </p>
       </div>
     </div>
-
+    <!-- 언어 선택 버튼들 -->
+    <div class="absolute top-4 right-20">
+      <button id="langEnBtn" class="px-2 py-1 bg-blue-200 rounded-lg mr-2">
+        English
+      </button>
+      <button id="langKoBtn" class="px-2 py-1 bg-blue-200 rounded-lg">
+        한국어
+      </button>
+    </div>
     <!-- 메인 컨테이너 -->
-    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-sm text-center">
-      <h1 class="text-2xl font-bold text-green-700 mb-4">
+    <div
+      class="bg-white shadow-lg rounded-lg p-8 w-full max-w-sm text-center"
+      style="padding-top: 0.4rem"
+    >
+      <h1 class="text-2xl font-bold text-green-700 mb-4" id="mainTitle">
         Work Health Notificationer
       </h1>
-      <p class="text-md text-gray-600 mb-2 text-green-700">
+      <p class="text-md text-gray-600 mb-2 text-green-700" id="description">
         It is a website that notifies you so that you can change your posture at
         every certain time you work.
       </p>
       <hr class="mb-3" />
-      <p class="text-sm text-gray-600 mb-2">
+      <p class="text-sm text-gray-600 mb-2" id="postureTip">
         Correct your posture often, refresh, and work healthier!
       </p>
-      <p class="text-sm text-gray-500 mb-3">
+      <p class="text-sm text-gray-500 mb-3" id="workTimeInfo">
         Notifications will start at the start of the work time.
       </p>
-      <p class="text-sm text-gray-500 mb-3">
+      <p class="text-sm text-gray-500 mb-3" id="offHoursInfo">
         There are no notifications during off-hours and lunchtime.
       </p>
       <hr class="mb-3" />
@@ -45,6 +56,7 @@
         <label
           for="interval"
           class="block text-sm font-medium text-gray-700 mb-1"
+          id="intervalLabel"
           >Notification interval (minutes):</label
         >
         <input
@@ -61,6 +73,7 @@
         <label
           for="startWork"
           class="block text-sm font-medium text-gray-700 mb-1"
+          id="startWorkLabel"
           >Start of work hours:</label
         >
         <input
@@ -75,6 +88,7 @@
         <label
           for="endWork"
           class="block text-sm font-medium text-gray-700 mb-1"
+          id="endWorkLabel"
           >End of work hours:</label
         >
         <input
@@ -90,6 +104,7 @@
         <label
           for="lunchStart"
           class="block text-sm font-medium text-gray-700 mb-1"
+          id="lunchStartLabel"
           >Start of lunch time:</label
         >
         <input
@@ -104,6 +119,7 @@
         <label
           for="lunchEnd"
           class="block text-sm font-medium text-gray-700 mb-1"
+          id="lunchEndLabel"
           >End of lunch time:</label
         >
         <input
@@ -115,9 +131,6 @@
       </div>
 
       <!-- 다음 알림 시간 및 카운트다운 -->
-      <!-- <p id="nextAlert" class="text-sm text-gray-700 mb-2">
-        다음 알림 시각: --:--
-      </p> -->
       <p id="countdown" class="text-sm text-gray-700 mb-6">
         Time of next notification: --:--
       </p>
@@ -141,5 +154,6 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="lang.js"></script>
   </body>
 </html>

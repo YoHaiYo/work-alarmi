@@ -125,7 +125,7 @@ function updateCurrentTime() {
   clearInterval(currentTimeTimer);
   currentTimeTimer = setInterval(() => {
     const now = new Date();
-    currentTimeDisplay.textContent = `Current time: ${now.toLocaleTimeString()}`;
+    currentTimeDisplay.textContent = `${currentTime}: ${now.toLocaleTimeString()}`;
   }, 1000);
 }
 
