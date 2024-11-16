@@ -59,7 +59,7 @@ function startReminder() {
 
       // 알림 클릭 시 현재 페이지로 이동
       notification.onclick = function () {
-        window.open("http://127.0.0.1:5500/", "_blank");
+        window.open("https://work-alarmi.vercel.app/", "_blank");
       };
 
       // 알림 발생 시 소리 재생
